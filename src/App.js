@@ -1,4 +1,4 @@
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
 
 // Page components
 import Home from './pages/home/Home.js'
@@ -30,6 +30,9 @@ function App() {
           </Route>
           <Route path="/recipes/:id">
             <Recipe />
+          </Route>
+          <Route path="*">
+            <Redirect to="/" />
           </Route>
         </Switch>
       </BrowserRouter>
