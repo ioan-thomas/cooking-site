@@ -1,6 +1,10 @@
 import { useState, useRef} from "react"
+import {useFetch} from '../../hooks/useFetch'
+
 // styles
 import "./Create.css"
+
+
 
 export default function Create() {
 
@@ -10,10 +14,11 @@ export default function Create() {
   const [newIngredient, setNewIngredient] = useState('');
   const [ingredients, setIngredients] = useState([]);
   const ingredientInput = useRef();
+  const { postData, data, error } = useFetch('http://localhost:3000/recipes', "POST")
 
   const handleSubmit = e => {
-    e.preventDefault()
-    console.log(title, method, cookingTime, ingredients)
+    e.preventDefault();
+    postData({ title, ingredients, method, cookingTime: cookingTime + ' minutes'})
   }
 
   const handleAdd = (e) => {
@@ -40,7 +45,12 @@ export default function Create() {
         <label>
           <span>Recipe Ingredients:</span>
           <div className="ingredients">
-            <input type="text" ref={ingredientInput} value={newIngredient} onChange={e => setNewIngredient(e.target.value)}/>
+            <input 
+            type="text" 
+            ref={ingredientInput} 
+            value={newIngredient} 
+            onChange={e => setNewIngredient(e.target.value)}
+            />
             <button className="btn" onClick={handleAdd}>Add</button>
           </div>
         </label>
@@ -48,12 +58,20 @@ export default function Create() {
         
         <label>
           <span>Recipe method:</span>
-          <textarea onChange={e => setMethod(e.target.value)} value={method} required></textarea>
+          <textarea 
+          onChange={e => setMethod(e.target.value)} 
+          value={method} 
+          required />
         </label>
 
         <label>
           <span>Cooking time (minutes):</span>
-          <input type="number" onChange={e => setCookingTime(e.target.value)} value={cookingTime} required/>
+          <input 
+          type="number" 
+          onChange={e => setCookingTime(e.target.value)} 
+          value={cookingTime} 
+          required
+          />
         </label>
 
         <button className="btn">Submit</button>
