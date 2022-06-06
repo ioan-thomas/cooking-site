@@ -1,9 +1,11 @@
+import React from 'react'
 import { Link } from 'react-router-dom'
-
 // styles
 import './NavBar.css'
+// components
+import Searchbar from './Searchbar'
 
-import React from 'react'
+
 
 export default function NavBar() {
   return (
@@ -12,6 +14,7 @@ export default function NavBar() {
             <Link to="/" className='brand'>
                 <h1>A Recipe for Disaster</h1>
             </Link>
+            <Searchbar />
             <Link to="/create">
                 Create Recipe
             </Link>
