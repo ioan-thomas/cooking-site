@@ -45,7 +45,7 @@ export default function Create() {
     <div className="create">
       <h2 >Add a New Recipe</h2>
 
-      <form onSubmit={handleSubmit} >
+      <form onSubmit={handleSubmit}>
         <label>
           <span>Recipe Title:</span>
           <input type="text" onChange={e => setTitle(e.target.value)} value={title}/>
