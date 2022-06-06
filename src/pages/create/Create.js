@@ -43,15 +43,15 @@ export default function Create() {
 
   return (
     <div className="create">
-      <h2 className="page-title">Add a New Recipe</h2>
+      <h2 >Add a New Recipe</h2>
 
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} >
         <label>
           <span>Recipe Title:</span>
           <input type="text" onChange={e => setTitle(e.target.value)} value={title}/>
         </label>
 
-        <label>
+        <label className="ingredients-container">
           <span>Recipe Ingredients:</span>
           <div className="ingredients">
             <input 
