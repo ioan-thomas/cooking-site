@@ -21,8 +21,9 @@ export default function ThemeSelector() {
       <div className="mode-toggle">
         <img 
         src={modeIcon} 
-        alt="sun" 
+        alt="dark/light toggle icon " 
         onClick={toggleMode}
+        style={{filter: mode === 'dark' ? 'invert(100%)' : 'invert(20%)'}}
         />
       </div>
         <div className="theme-buttons">
