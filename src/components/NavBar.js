@@ -9,11 +9,11 @@ import './NavBar.css'
 
 export default function NavBar() {
 
-  const { color } = useTheme()
+  const { color, changeColor } = useTheme()
 
   return (
       <div className="navbar" style={{background: color}}>
-        <nav>
+        <nav onClick={() => changeColor(color === 'pink' ? 'blue' : 'pink')}>
             <Link to="/" className='brand'>
                 <h1>A Recipe for Disaster</h1>
             </Link>
