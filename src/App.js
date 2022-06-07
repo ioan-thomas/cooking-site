@@ -6,6 +6,7 @@ import Create from './pages/create/Create.js'
 import Search from './pages/search/Search.js'
 import Recipe from './pages/recipe/Recipe.js'
 import NavBar from './components/NavBar.js';
+import ThemeSelector from './components/ThemeSelector'
 
 //  Styles
 import './App.css'
@@ -16,6 +17,7 @@ function App() {
       <BrowserRouter>
         <Route>
           <NavBar/>
+          <ThemeSelector />
         </Route>
         <Switch>
         {/* only displays this route */}
