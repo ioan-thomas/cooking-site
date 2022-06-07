@@ -8,17 +8,17 @@
     align-items: center;
     max-width: 1200px;
     margin: 0 auto; 
-    justify-content: space-around;
+    /* justify-content: space-around; */
   }
   .navbar a.brand {
-    /* margin-right: auto; */
+    margin-right: auto;
     color: #fff;
     text-decoration: none;
   }
   .navbar a:last-child {
     color: #fff;
     text-decoration: none;
-    /* margin-left: 40px; */
+    margin-left: 40px;
     padding: 8px;
     border: 1px solid #fff;
     border-radius: 4px;
