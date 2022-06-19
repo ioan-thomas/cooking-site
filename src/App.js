@@ -1,4 +1,4 @@
-import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 
 // Page components
 import Home from './pages/home/Home.js'
@@ -17,28 +17,17 @@ function App() {
   return (
     <div className={`App ${mode}`}>
       <BrowserRouter>
-        <Route>
-          <NavBar/>
-          <ThemeSelector />
-        </Route>
-        <Switch>
+        <NavBar/> 
+        <ThemeSelector />
+        <Routes>
         {/* only displays this route */}
-          <Route exact path="/">
-            <Home />
-          </Route>
-          <Route path="/create">
-            <Create />
-          </Route>
-          <Route path="/search">
-            <Search />
-          </Route>
-          <Route path="/recipes/:id">
-            <Recipe />
-          </Route>
-          <Route path="*">
-            <Redirect to="/" />
-          </Route>
-        </Switch>
+          <Route path="/" element={<Home />} />
+          <Route path="/create" element={<Create />} />
+          <Route path="/search" element={<Search />} />
+          <Route path="/recipes/:id" element={<Recipe />} />
+          <Route path="*" element={<Navigate to="/" />} />
+
+        </Routes>
       </BrowserRouter>
     </div>
   );
